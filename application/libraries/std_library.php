@@ -31,7 +31,7 @@ class Std_Library{
 	 * @example
 	 * $_INTERNAL_DATABASE_NAME_CONVERT = array("Facebook_Id" =>"Facebook");
 	 */
-	public static $_INTERNAL_DATABASE_NAME_CONVERT = NULL;
+	public $_INTERNAL_DATABASE_NAME_CONVERT = NULL;
 
 	/**
 	 * The members of this array will be left out
@@ -40,7 +40,7 @@ class Std_Library{
 	 * @access public
 	 * @var array
 	 */
-	public static $_INTERNAL_DATABASE_SAVE_IGNORE = NULL;
+	public $_INTERNAL_DATABASE_SAVE_IGNORE = NULL;
 
 	/**
 	 * This array contains the properties that contain classes,
@@ -52,7 +52,7 @@ class Std_Library{
 	 * @example
 	 * $_INTERNAL_SAVE_THESE_CHILDS_FIRST = array("Property Name");
 	 */
-	public static $_INTERNAL_SAVE_THESE_CHILDS_FIRST = NULL;
+	public $_INTERNAL_SAVE_THESE_CHILDS_FIRST = NULL;
 
 	/**
 	 * This property can contain properties to be ignored when exporting
@@ -64,7 +64,7 @@ class Std_Library{
 	 * @example
 	 * $_INTERNAL_EXPORT_INGNORE = array("CI","_CI");
 	 */
-	public static $_INTERNAL_EXPORT_INGNORE = NULL;
+	public $_INTERNAL_EXPORT_INGNORE = NULL;
 
 	/**
 	 * This property can contain properties to be ignored, when the database flag is true in export.
@@ -76,7 +76,7 @@ class Std_Library{
 	 * @example
 	 * $_INTERNAL_DATABASE_EXPORT_INGNORE = array("id");
 	 */
-	public static $_INTERNAL_DATABASE_EXPORT_INGNORE = NULL;
+	public $_INTERNAL_DATABASE_EXPORT_INGNORE = NULL;
 
 	/**
 	 * This property contain values for converting databse rows to class properties
@@ -119,7 +119,7 @@ class Std_Library{
 	 * @example
 	 * $_INTERNAL_LOAD_FROM_CLASS = array("TargetGroup" => "Group");
 	 */
-	public static $_INTERNAL_LOAD_FROM_CLASS = NULL;
+	public $_INTERNAL_LOAD_FROM_CLASS = NULL;
 
 	/**
 	 * This property is used to declare link's between other databases and a class property in this class
@@ -131,7 +131,7 @@ class Std_Library{
 	 * $this->_INTERNAL_LINK_PROPERTIES = array("Questions" => array("Questions",array("SeriesId" => "id"),array("Properties to select data from")));
 	 * @see Link
 	 */
-	public static $_INTERNAL_LINK_PROPERTIES = NULL;
+	public $_INTERNAL_LINK_PROPERTIES = NULL;
 
 	/**
 	 * This property is used to determine what properties is going to be ignored,
@@ -143,7 +143,7 @@ class Std_Library{
 	 * @example
 	 * $this->_INTERNAL_LINK_PROPERTIES = array("Email,"Google_Id");
 	 */
-	public static $_INTERNAL_SECURE_EXPORT_IGNORE = NULL;
+	public $_INTERNAL_SECURE_EXPORT_IGNORE = NULL;
 
 	/**
 	 * This property is used to give a property of each childobject in a property a given value
@@ -155,7 +155,7 @@ class Std_Library{
 	 * @example
 	 * array("Class Property" => array("Property" => "Value or name of property of this class"));
 	 */
-	public static $_INTERNAL_SAVE_LINK = NULL;
+	public $_INTERNAL_SAVE_LINK = NULL;
 
 	/**
 	 * This property is used to force a specific property to be an array
@@ -166,7 +166,7 @@ class Std_Library{
 	 * @example
 	 * $this->_INTERNAL_FORCE_ARRAY = array("Questions");
 	 */
-	public static $_INTERNAL_FORCE_ARRAY = NULL;
+	public $_INTERNAL_FORCE_ARRAY = NULL;
 
 	/**
 	 * This parameter is used to control the behavior, of the dublicate check,
@@ -184,7 +184,7 @@ class Std_Library{
 	 * @access public
 	 * @static
 	 */
-	public static $_INTERNAL_LINK_SAVE_DUPLICATE_FUNCTION = NULL;
+	public $_INTERNAL_LINK_SAVE_DUPLICATE_FUNCTION = NULL;
 
 	/**
 	 * This property is used to deffine properties, in the LOAD_FROM_CLASS
@@ -197,7 +197,7 @@ class Std_Library{
 	 * array("Class Property" => "Boolean");
 	 * @internal This is a class setting property
 	 */
-	public static $_INTERNAL_SIMPLE_LOAD = NULL;
+	public $_INTERNAL_SIMPLE_LOAD = NULL;
 
 	/**
 	 * This property is used to deffine a set of rows that is gonna be
@@ -210,7 +210,7 @@ class Std_Library{
 	 * @example
 	 * array("SeriesId","Title");
 	 */
-	public static $_INTERNAL_NOT_ALLOWED_DUBLICATE_ROWS = NULL;
+	public $_INTERNAL_NOT_ALLOWED_DUBLICATE_ROWS = NULL;
 
 	/**
 	 * This property is used to abort the Dublicate check if
@@ -221,7 +221,7 @@ class Std_Library{
 	 * @static
 	 * @internal This is an internal class setting
 	 */
-	public static $_INTERNAL_NOT_ALLOWED_DUBLICATE_ROWS_ABORT_ON_NULL = NULL;
+	public $_INTERNAL_NOT_ALLOWED_DUBLICATE_ROWS_ABORT_ON_NULL = NULL;
 
 	/**
 	 * This property is used to link data based on data in an array, and
@@ -236,7 +236,18 @@ class Std_Library{
 	 * @example
 	 * $this->_INTERNAL_PROPERTY_LINK = array("Options" => array("Values","OptionId"));
 	 */
-	public static $_INTERNAL_PROPERTY_LINK = NULL;
+	public $_INTERNAL_PROPERTY_LINK = NULL;
+
+	/**
+	 * Use this property to merge all the results from array(array(),array()) into array("",""),
+	 * for linked properties. This will only be done if it's only one property from each result that should be grabbed
+	 * @example
+	 * _INTERNAL_LINKED_MERGER_RESULTS = array("modes" => true);
+	 * @var array
+	 * @since 1.4
+	 * @access public
+	 */
+	public $_INTERNAL_LINKED_MERGE_RESULTS = null;
 
 	/**
 	 * Use this array to set properties that always should be overwritten
@@ -244,7 +255,15 @@ class Std_Library{
 	 * @access public
 	 * @var array
 	 */
-	public static $_INTERNAL_IMPORT_OVERWRITE = NULL;
+	public $_INTERNAL_IMPORT_OVERWRITE = NULL;
+
+	/**
+	 * If the class has been loaded
+	 * @since 1.4
+	 * @access public
+	 * @var boolean
+	 */
+	public $_INTERNAL_LOADED = false;
 
 	/**
 	 * This function concerts "1" to true and 0 and NULL to false,
@@ -254,7 +273,7 @@ class Std_Library{
 	 * @access public
 	 * @static
 	 */
-	public static $_INTERNAL_CONVERT_TO_BOOLEAN = NULL;
+	public $_INTERNAL_CONVERT_TO_BOOLEAN = NULL;
 
 	/**
 	 * If this property is set to true and a dublicate is found, the dublicate is overwritten
@@ -262,7 +281,7 @@ class Std_Library{
 	 * @access public
 	 * @var boolean
 	 */
-	public static $_INTERNAL_OVERWRITE_ON_DUBLICATE = false;
+	public $_INTERNAL_OVERWRITE_ON_DUBLICATE = false;
 
 	/**
 	 * An array containing the property(ies) that is going to be filled with the timestamp of the last 
@@ -271,7 +290,7 @@ class Std_Library{
 	 * @access public
 	 * @var array|string
 	 */
-	public static $_INTERNAL_LAST_UPDATED_PROPERTY = NULL;
+	public $_INTERNAL_LAST_UPDATED_PROPERTY = NULL;
 
 	/**
 	 * The property(ies) which is going to be filled with the timestamp of the first save
@@ -279,7 +298,7 @@ class Std_Library{
 	 * @since 1.21
 	 * @access public
 	 */
-	public static $_INTERNAL_CREATED_TIME_PROPERTY = NULL;
+	public $_INTERNAL_CREATED_TIME_PROPERTY = NULL;
 
 	/**
 	 * The property(ies) to fill with the user that has created the data
@@ -287,7 +306,7 @@ class Std_Library{
 	 * @access public
 	 * @var array|string
 	 */
-	public static $_INTERNAL_CREATED_USER_PROPERTY = NULL;
+	public $_INTERNAL_CREATED_USER_PROPERTY = NULL;
 
 	/**
 	 * The property(ies) to fill with the user that has last updated the data
@@ -295,18 +314,18 @@ class Std_Library{
 	 * @access public
 	 * @var array|string
 	 */
-	public static $_INTERNAL_LAST_UPDATED_USER_PROPERTY = NULL;
+	public $_INTERNAL_LAST_UPDATED_USER_PROPERTY = NULL;
 
 	/**
 	 * This property can either contain an array of properties to ignore
 	 * or the keyword "DATABASE" that uses the DATABASE_EXPORT_IGNORE list as ignoring list or it can be an array
-	 * where the first value is "MERGE" and the second is an array containing property nanmes,
+	 * where the first value is "MERGE" and the second is an array containing property names,
 	 * this will merges the array with the DATABASE_EXPORT_IGNORE list
 	 * @var array|string
 	 * @since 1.3
 	 * @access public
 	 */
-	public static $_INTERNAL_LINK_SAVE_IGNORE = NULL;
+	public $_INTERNAL_LINK_SAVE_IGNORE = NULL;
 
 	/**
 	 * A property to store the current user
@@ -314,7 +333,7 @@ class Std_Library{
 	 * @access public
 	 * @var integer
 	 */
-	public static $_INTERNAL_CURRENT_USER = NULL;
+	public $_INTERNAL_CURRENT_USER = NULL;
 
 	/**
 	 * An array containing the fields to ignore when importing
@@ -322,7 +341,7 @@ class Std_Library{
 	 * @access public
 	 * @var array
 	 */
-	public static $_INTERNAL_IMPORT_IGNORE = NULL;
+	public $_INTERNAL_IMPORT_IGNORE = NULL;
 
 	/**
 	 * This array contains the keywords to ignore when exporting
@@ -330,7 +349,7 @@ class Std_Library{
 	 * @since 1.3
 	 * @access public
 	 */
-	public static $_INTERNAL_KEYWORD_IGNORE = NULL;
+	public $_INTERNAL_KEYWORD_IGNORE = NULL;
 
 	/**
 	 * This function can be used to set the sorting function and options for sorting
@@ -341,7 +360,7 @@ class Std_Library{
 	 * @since 1.3
 	 * @access public
 	 */
-	public static $_INTERNAL_EXPORT_SORTING = null;
+	public $_INTERNAL_EXPORT_SORTING = null;
 
 	/**
 	 * The database export array implode delemiter
@@ -360,7 +379,7 @@ class Std_Library{
 	 * @example
 	 * array("property" => array("sort_function", array("sort_options")))
 	 */
-	public static $_INTERNAL_SORT_PROPERTIES = NULL;
+	public $_INTERNAL_SORT_PROPERTIES = NULL;
 
 	/**
 	 * This property is used when exporting,
@@ -373,7 +392,7 @@ class Std_Library{
 	 * "property" => array("date", "Y-d-m")
 	 * "property" => boolean // Because the boolean hasn't got any options
 	 */
-	public static $_INTERNAL_EXPORT_FORMATING = NULL;
+	public $_INTERNAL_EXPORT_FORMATING = NULL;
 
 	/**
 	 * If this is true, then "" or NULL will mean to empty the key
@@ -973,6 +992,7 @@ class Std_Library{
 		self::_Link_Properties($Fields);
 		self::_Load_From_Class($Simple, $Arguments);
 		self::_Force_Array();
+		$this->_INTERNAL_LOADED = true;
 		return TRUE;
 	}
 
@@ -1072,6 +1092,16 @@ class Std_Library{
 			return $data;
 		}
 		return $data;
+	}
+
+	/**
+	 * This function is a getter for _INTERNAL_LOADED
+	 * @since 1.0
+	 * @access public
+	 * @return boolean
+	 */
+	public function is_loaded () {
+		return $this->_INTERNAL_LOADED;
 	}
 
 	/**
@@ -1609,7 +1639,6 @@ class Std_Library{
 	/**
 	 * This function saves the local class data to the database row of the Id property
 	 * @return string This function can return a error string
-	 * @todo Make the linked properties be saved to, and with the an updated id, etc SeriesId = $this->id
 	 * @param boolean $save_self If the object should save it self or only it's childrens
 	 * @since 1.0
 	 * @access public
@@ -1753,14 +1782,33 @@ class Std_Library{
 					$object->_INTERNAL_IS_LINKED = true;
 					$object->Save();
 				}
-				if (property_exists($object, "id")) {
-					$link_data_to_save = array_merge(array($row => $object->{"id"}),self::_Create_Link_Query($query));
-					
-					//This should be checked if any problems with Duplicate checks occur
-					$exists = $this->_INTERNAL_DATABASE_MODEL->Dublicate_Check($link_data_to_save, $table, $duplicate_check_rows);
-					if (($exists && $duplicate_function != "STOP") || !$exists) {
-						$this->_INTERNAL_DATABASE_MODEL->Save_Linked($table, $link_data_to_save, $object, $duplicate_check_rows);
+
+				if ( is_array($row) && count($row) > 1 ) {
+					$data_rows = array();
+					foreach ( $row as $key ) {
+						if (property_exists($object, $key) && isset($object->{$key}) && $object->{$key} != "") {
+							$data_rows[$key] = $object->{$key};
+						}
 					}
+				} else {
+					if ( is_array($row) ) {
+						$row = current($row);
+					}
+					if (property_exists($object, "id") && isset($object->{"id"}) && $object->{"id"} != "") {
+						$data_rows = array($row => $object->{"id"});
+					}
+				}
+
+				if ( count($data_rows) == 0) {
+					return false;
+				}
+
+				$link_data_to_save = array_merge($data_rows,self::_Create_Link_Query($query));
+					
+				//This should be checked if any problems with Duplicate checks occur
+				$exists = $this->_INTERNAL_DATABASE_MODEL->Dublicate_Check($link_data_to_save, $table, $duplicate_check_rows);
+				if (($exists && $duplicate_function != "STOP") || !$exists) {
+					$this->_INTERNAL_DATABASE_MODEL->Save_Linked($table, $link_data_to_save, $object, $duplicate_check_rows);
 				}
 			}			
 		}
@@ -2134,13 +2182,15 @@ class Std_Library{
 	 * @access public
 	 */
 	public function Import($Array = NULL,$Override = false,$Secure = false){
-		if(!is_null($Array) && is_array($Array)){
+		if(!is_null($Array) && is_array($Array) && count($Array) > 0){
+			$Result = false;
 			foreach ($Array as $Property => $Value) {
 				$Import_Ignore = array();
 				if (property_exists($this, "_INTERNAL_IMPORT_IGNORE") && isset($this->_INTERNAL_IMPORT_IGNORE) && is_array($this->_INTERNAL_IMPORT_IGNORE)){
 					$Import_Ignore = $this->_INTERNAL_IMPORT_IGNORE;
 				}
 				if(property_exists($this, $Property) && !self::_Secure_Ignore($Property,$Secure,$Import_Ignore)){
+					$Result = true;
 					if (isset($this->_INTERNAL_IMPORT_OVERWRITE) && is_array($this->_INTERNAL_IMPORT_OVERWRITE) && (in_array($Property, $this->_INTERNAL_IMPORT_OVERWRITE) || array_key_exists($Property, $this->_INTERNAL_IMPORT_OVERWRITE))) {
 						$Overwrite = (array_key_exists($Property, $this->_INTERNAL_IMPORT_OVERWRITE))? $this->_INTERNAL_IMPORT_OVERWRITE[$Property] : true;
 					} else {
@@ -2201,12 +2251,13 @@ class Std_Library{
 					}
 				}
 			}
+
 		} else {
 			return FALSE;
 		}
 		self::_Load_From_Class();
 		self::_Force_Array();
-		return TRUE;
+		return $Result;
 	}
 
 	/**
@@ -3014,12 +3065,16 @@ class Std_Library{
 	 * from and object or more properties
 	 * @param object $Object     The object to get the data from
 	 * @param string|array $Properties The property/properties to get
+	 * @param boolean $Merge If the data should be merged to one array
 	 * @return array|string
 	 * @since 1.1
 	 * @access private
 	 */
-	private function _Get_Data_From_Object($Object = NULL,$Properties = NULL){
+	private function _Get_Data_From_Object ($Object = NULL,$Properties = NULL, $Merge = false) {
 		if(!is_null($Object) && is_object($Object) && !is_null($Properties)){
+			if (count($Properties) == 1 && $Merge == true) {
+				$Properties = array_shift(array_values($Properties));;
+			}
 			if(is_array($Properties)){
 				$Temp = array();
 				foreach ($Properties as $Property) {
@@ -3052,17 +3107,35 @@ class Std_Library{
 				$UseProperty = "id";
 			}
 
+			if (isset($this->_INTERNAL_LINKED_MERGE_RESULTS) && is_array($this->_INTERNAL_LINKED_MERGE_RESULTS) && array_key_exists($Property, $this->_INTERNAL_LINKED_MERGE_RESULTS)) {
+				$Merge = $this->_INTERNAL_LINKED_MERGE_RESULTS[$Property];
+			} else {
+				$Merge = false;
+			}
+
 			if(count($Data) > 1){
 				$Temp = array();
 				foreach ($Data as $Object) {
 					if(is_array($UseProperty)){
-						$Temp[] = self::_Get_Data_From_Object($Object,$UseProperty);
+						$Temp[] = self::_Get_Data_From_Object($Object,$UseProperty,$Merge);
 					} else {
 						if(property_exists($Object, $UseProperty)){
 							self:: _Remove_Where($Property,$Object->{$UseProperty});
-							$Temp[] = self::_Get_Data_From_Object($Object,$UseProperty);
+							$Temp[] = self::_Get_Data_From_Object($Object,$UseProperty,$Merge);
 						}	
 					}
+				}
+				if (isset($this->_INTERNAL_LOAD_FROM_CLASS) && is_array($this->_INTERNAL_LOAD_FROM_CLASS) && array_key_exists($Property, $this->_INTERNAL_LOAD_FROM_CLASS)) {
+					$TempValues = array();
+
+					foreach ($Temp as $keyName => $keyValue) {
+						if (is_array($keyValue)) {
+							$TempValues[] = array_shift(array_values($keyValue));
+						} else {
+							$TempValues[] = $keyValue;
+						}
+					}
+					$Temp = $TempValues;
 				}
 				if(count($Temp) > 0){
 					if(is_null($this->{$Property})){
@@ -3080,10 +3153,25 @@ class Std_Library{
 					$Data = $Data[0];
 				}
 				if(!is_null($Data) && is_object($Data)){
+					$Value = self::_Get_Data_From_Object($Data,$UseProperty,$Merge);
+
+					if (isset($this->_INTERNAL_LOAD_FROM_CLASS) && is_array($this->_INTERNAL_LOAD_FROM_CLASS) && array_key_exists($Property, $this->_INTERNAL_LOAD_FROM_CLASS)) {
+						$TempValues = array();
+
+						foreach ($Value as $keyName => $keyValue) {
+							if (is_array($keyValue)) {
+								$TempValues[] = array_shift(array_values($keyValue));
+							} else {
+								$TempValues[] = $keyValue;
+							}
+						}
+						$Value = $TempValues;
+					}
+
 					if(is_array($this->{$Property})){
-						$this->{$Property}[] = self::_Get_Data_From_Object($Data,$UseProperty);
+						$this->{$Property}[] = $Value;
 					} else {
-						$this->{$Property} = self::_Get_Data_From_Object($Data,$UseProperty);
+						$this->{$Property} = $Value;
 					}
 				}
 			}

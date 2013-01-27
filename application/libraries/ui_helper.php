@@ -88,7 +88,8 @@ class Ui_Helper {
 			"fonts_url" => $this->_CI->config->item("fonts_url"),
 			"base_url" => base_url(),
 			"language" => $this->language,
-			"current_time" => time()
+			"current_time" => time(),
+			"uri_string" => $this->_CI->uri->uri_string()
 		);
 		if (!is_null($extraSettings)) {
 			return array_unique(array_merge($settings,$extraSettings));

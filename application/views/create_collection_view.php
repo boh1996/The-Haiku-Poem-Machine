@@ -23,6 +23,7 @@
         var userLanguage = "<?php echo $this->ui_helper->language; ?>";
         var base_url = "<?= $base_url; ?>";
         var selects = ["5","7"];
+        var currentUrl = "<?php echo $uri_string; ?>";
     </script>
     <!--[if lt IE 9]>
           <script src="<?php echo $base_url.$html5_shiv_url; ?>"></script>
@@ -60,7 +61,10 @@
         <div id="Container">
             <ul id="questions" style="padding: 0;">
                 <li>
-                    <p id="title"><?php echo $this->lang->line("collection_create"); ?></p>
+                    <p id="title"><?php echo $this->lang->line("collection_create"); ?>
+                        <img id="flagDK" src="https://illution.dk/haiku/assets/images/dk.png">
+                        <img id="flagGB" src="https://illution.dk/haiku/assets/images/gb.png">
+                    </p>
 
                     <select data-placeholder="<?= $this->lang->line("collection_languages"); ?>" id="languages-select" multiple>
                         <?php 
@@ -159,9 +163,24 @@
         });
         $("#submitButton").button();
         $("#syllabelsDialogClose").button();
-        $('.syllabels-select:first').find("span").text(translations.syllabels_text.replace("{number_of_syllabels}","5"));
+        $('.syllabels-select').each(function (index, element) {
+            $(element).find("span").text(translations.syllabels_text.replace("{number_of_syllabels}",$(element).attr("data-value")));
+        });
         $("#copy").button();
         $("#go").button();
+
+         /**
+        * When the Danish flag is clicked, send the user to the Danish page
+        */
+        $('#flagDK').live("click",function () {
+            document.location = base_url+currentUrl+'?language=danish';
+        });
+        /**
+        * When the English(GB) flag is clicked, send the user to the English(GB) page
+        */
+        $('#flagGB').click("click",function () {
+            document.location = base_url+currentUrl+'?language=english';
+        });
     </script>
 </body>
 </html>

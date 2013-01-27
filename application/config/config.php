@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://127.0.0.1/haiku';
+$config['base_url']	= 'https://illution.dk/haiku';
 
 /*
 |--------------------------------------------------------------------------
@@ -341,7 +341,7 @@ $config['time_reference'] = 'local';
 | in your view files.  Options are TRUE or FALSE (boolean)
 |
 */
-$config['rewrite_short_tags'] = FALSE;
+	$config['rewrite_short_tags'] = TRUE;
 
 
 /*
